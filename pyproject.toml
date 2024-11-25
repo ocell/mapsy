@@ -4,6 +4,10 @@ version = "0.1.0"
 description = ""
 authors = ["Felix Horvat <felix.horvat@ocell.io>"]
 readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/ocell/mapy"
+repository = "https://github.com/ocell/mapy"
+
 
 [tool.poetry.dependencies]
 python = "^3.10"
