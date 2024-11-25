@@ -1,5 +1,5 @@
 import pytest
-from mapy.geo_util import Box
+from mapsy.geo_util import Box
 
 
 def test_bbox_round_trip():

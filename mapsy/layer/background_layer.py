@@ -1,6 +1,6 @@
-from mapy.color import Color
-from mapy.layer.layer import Layer
-from mapy.render.context import RenderContext
+from mapsy.color import Color
+from mapsy.layer.layer import Layer
+from mapsy.render.context import RenderContext
 
 
 class BackgroundLayer(Layer):

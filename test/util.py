@@ -1,5 +1,5 @@
 import pytest
-import mapy
+import mapsy
 from contextlib import contextmanager
 from os import path
 
@@ -12,15 +12,15 @@ def assert_render_equality(
     size=(100, 100),
     box=(0, 0, 1, 1),
 ):
-    map = mapy.Map()
+    map = mapsy.Map()
     yield map
 
     input_path = path.join("test", "data", filename)
     output_path = input_path if create_input else path.join(tmp_path, filename)
     surf = map.render(
-        mapy.FixedScreenSize(
-            mapy.Box(*box),
-            mapy.ScreenSize(*size),
+        mapsy.FixedScreenSize(
+            mapsy.Box(*box),
+            mapsy.ScreenSize(*size),
         )
     )
     surf.write_to_png(output_path)

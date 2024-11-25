@@ -8,10 +8,10 @@ import mercantile
 from mercantile import LngLatBbox, Tile
 from requests import get
 
-from mapy.common import ImageFilter, MapyInfo
-from mapy.geo_util import Box, bbox_to_affine, zoomForBounds
-from mapy.layer.layer import Layer
-from mapy.render.context import RenderContext
+from mapsy.common import ImageFilter, MapsyInfo
+from mapsy.geo_util import Box, bbox_to_affine, zoomForBounds
+from mapsy.layer.layer import Layer
+from mapsy.render.context import RenderContext
 
 
 class TileClient:
@@ -33,7 +33,7 @@ class TileClient:
 
         response = get(
             hydrated_url,
-            headers={"User-Agent": f"{MapyInfo.AGENT_NAME}/{MapyInfo.VERSION}"},
+            headers={"User-Agent": f"{MapsyInfo.AGENT_NAME}/{MapsyInfo.VERSION}"},
         )
         if response.status_code == 200:
             if cache_path:

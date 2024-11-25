@@ -1,14 +1,14 @@
 import math
 from typing import Protocol
-from mapy.common import ScreenSize
-from mapy.geo_util import Transformer
-from mapy.render.cairo_backend import CairoBackend
-from mapy.layer.layer import Layer
+from mapsy.common import ScreenSize
+from mapsy.geo_util import Transformer
+from mapsy.render.cairo_backend import CairoBackend
+from mapsy.layer.layer import Layer
 
 
-from mapy.layer.raster_layer import Box
-from mapy.render.context import RenderContext
-from mapy.render.renderer import Surface
+from mapsy.layer.raster_layer import Box
+from mapsy.render.context import RenderContext
+from mapsy.render.renderer import Surface
 
 
 class RenderMode(Protocol):

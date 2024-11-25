@@ -2,14 +2,14 @@ from dataclasses import dataclass
 from affine import Affine
 from shapely import MultiPoint, Point, affinity
 
-from mapy.color import Color
-from mapy.common import FontSlant, FontWeight, TextAnchor
-from mapy.icon.icon import Icon
-from mapy.layer.layer import Layer
-from mapy.common import IconAlign
+from mapsy.color import Color
+from mapsy.common import FontSlant, FontWeight, TextAnchor
+from mapsy.icon.icon import Icon
+from mapsy.layer.layer import Layer
+from mapsy.common import IconAlign
 
 
-from mapy.render.context import RenderContext
+from mapsy.render.context import RenderContext
 
 
 @dataclass

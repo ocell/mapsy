@@ -1,7 +1,7 @@
-import mapy
+import mapsy
 from shapely.geometry import shape
 
-from mapy.geo_util import Box
+from mapsy.geo_util import Box
 
 
 json = {
@@ -49,32 +49,32 @@ json = {
 
 def main():
     # Create a map
-    map = mapy.Map()
-    tile_layer = mapy.TiledRasterLayer(
+    map = mapsy.Map()
+    tile_layer = mapsy.TiledRasterLayer(
         [
             "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
         ]
     )
 
     polygon = shape(json)
-    fill = mapy.FillLayer(
+    fill = mapsy.FillLayer(
         [
-            mapy.FillItem(
+            mapsy.FillItem(
                 polygon,
-                fill_color=mapy.Color(0.5, 0.5, 0.5, 0.3),
-                line_color=mapy.Color(0, 0, 0),
+                fill_color=mapsy.Color(0.5, 0.5, 0.5, 0.3),
+                line_color=mapsy.Color(0, 0, 0),
                 line_width=2,
             )
         ]
     )
 
-    map.add_layer(mapy.BackgroundLayer(mapy.Color(1, 1, 1)))
+    map.add_layer(mapsy.BackgroundLayer(mapsy.Color(1, 1, 1)))
     map.add_layer(tile_layer)
     map.add_layer(fill)
 
     surf = map.render(
-        mapy.FixedScreenSize(
-            Box(*polygon.buffer(0.5).bounds), mapy.ScreenSize(512, 512)
+        mapsy.FixedScreenSize(
+            Box(*polygon.buffer(0.5).bounds), mapsy.ScreenSize(512, 512)
         )
     )
     surf.write_to_png("simple_map.png")

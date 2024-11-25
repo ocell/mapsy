@@ -1,4 +1,4 @@
-import mapy
+import mapsy
 from shapely import LineString, transform
 
 from test.util import assert_render_equality
@@ -6,18 +6,18 @@ from test.util import assert_render_equality
 
 def test_line_layer(tmp_path):
     items = [
-        mapy.LineItem(
+        mapsy.LineItem(
             geometry=LineString([(0, 0), (0.5, 0), (0.5, 0.5), (0, 0.5)]),
-            color=mapy.Color(1, 0, 0),
+            color=mapsy.Color(1, 0, 0),
             width=1,
         ),
-        mapy.LineItem(
+        mapsy.LineItem(
             geometry=LineString([(0.5, 0.5), (1, 0.5), (1, 1), (0.5, 1)]),
-            color=mapy.Color(0, 1, 0),
+            color=mapsy.Color(0, 1, 0),
             width=10,
         ),
     ]
-    layer = mapy.LineLayer(items)
+    layer = mapsy.LineLayer(items)
     assert layer.items == items
 
     with assert_render_equality(tmp_path, "test_line_layer.png") as map:
@@ -30,20 +30,20 @@ def test_line_joins(tmp_path):
     s1 = transform(s, lambda x: x + 0.6)
 
     items = [
-        mapy.LineItem(
+        mapsy.LineItem(
             geometry=s0,
-            color=mapy.Colors.RED,
+            color=mapsy.Colors.RED,
             width=14,
-            join=mapy.LineJoin.ROUND,
+            join=mapsy.LineJoin.ROUND,
         ),
-        mapy.LineItem(
+        mapsy.LineItem(
             geometry=s1,
-            color=mapy.Colors.GREEN,
+            color=mapsy.Colors.GREEN,
             width=14,
-            join=mapy.LineJoin.BEVEL,
+            join=mapsy.LineJoin.BEVEL,
         ),
     ]
-    layer = mapy.LineLayer(items)
+    layer = mapsy.LineLayer(items)
     assert layer.items == items
 
     with assert_render_equality(
@@ -59,26 +59,26 @@ def test_line_caps(tmp_path):
     s2 = transform(s, lambda x: x + 0.6)
 
     items = [
-        mapy.LineItem(
+        mapsy.LineItem(
             geometry=s0,
-            color=mapy.Colors.RED,
+            color=mapsy.Colors.RED,
             width=14,
-            cap=mapy.LineCap.BUTT,
+            cap=mapsy.LineCap.BUTT,
         ),
-        mapy.LineItem(
+        mapsy.LineItem(
             geometry=s1,
-            color=mapy.Colors.GREEN,
+            color=mapsy.Colors.GREEN,
             width=14,
-            cap=mapy.LineCap.ROUND,
+            cap=mapsy.LineCap.ROUND,
         ),
-        mapy.LineItem(
+        mapsy.LineItem(
             geometry=s2,
-            color=mapy.Colors.BLUE,
+            color=mapsy.Colors.BLUE,
             width=14,
-            cap=mapy.LineCap.SQUARE,
+            cap=mapsy.LineCap.SQUARE,
         ),
     ]
-    layer = mapy.LineLayer(items)
+    layer = mapsy.LineLayer(items)
     assert layer.items == items
 
     with assert_render_equality(

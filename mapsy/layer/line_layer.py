@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 
 from shapely import LineString, MultiLineString
-from mapy.common import LineCap, LineJoin
-from mapy.layer.layer import Layer
-from mapy.render.context import RenderContext
+from mapsy.common import LineCap, LineJoin
+from mapsy.layer.layer import Layer
+from mapsy.render.context import RenderContext
 
 
 @dataclass

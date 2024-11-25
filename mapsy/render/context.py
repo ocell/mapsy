@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 
-from mapy.common import ScreenSize
-from mapy.geo_util import Box, Transformer
-from mapy.render.renderer import RenderBackend
+from mapsy.common import ScreenSize
+from mapsy.geo_util import Box, Transformer
+from mapsy.render.renderer import RenderBackend
 
 
 @dataclass

@@ -1,7 +1,7 @@
 from typing import Protocol
 from abc import abstractmethod
 
-from mapy.render.context import RenderContext
+from mapsy.render.context import RenderContext
 
 
 class Layer(Protocol):

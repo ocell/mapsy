@@ -1,7 +1,7 @@
-# Mapy Project
+# Mapsy Project
 
 ## Overview
-Mapy is a Python library designed easily render static maps in python. It is designed to be simple to use and easy to integrate with existing codebases. The library supports rendering background, tiled raster, filled polygon, and other layers on the map. It directly supports geometric primitives, allowing users to directly render shapely geometries. 
+Mapsy is a Python library designed easily render static maps in python. It is designed to be simple to use and easy to integrate with existing codebases. The library supports rendering background, tiled raster, filled polygon, and other layers on the map. It directly supports geometric primitives, allowing users to directly render shapely geometries. 
 
 Input data must be in the `EPSG:4326` - WGS84 projection.
 
@@ -19,11 +19,11 @@ Input data must be in the `EPSG:4326` - WGS84 projection.
 
 
 ## Installation
-To install the Mapy library, clone the repository and install the required dependencies:
+To install the Mapsy library, clone the repository and install the required dependencies:
 
 ```bash
 git clone <repository-url>
-cd mapy
+cd mapsy
 poetry install
 # or
 pip install .
@@ -39,7 +39,7 @@ brew install cairo
 
 ## Usage
 
-The Mapy library is designed to be simple to use. The following sections provide examples of how to create a map with different layers. Note that in almost all cases you would have to add an attribution layer to the map. For example, if you use OpenStreetMap tiles, you would have to add the OpenStreetMap attribution to the map. This is not done automatically!
+The Mapsy library is designed to be simple to use. The following sections provide examples of how to create a map with different layers. Note that in almost all cases you would have to add an attribution layer to the map. For example, if you use OpenStreetMap tiles, you would have to add the OpenStreetMap attribution to the map. This is not done automatically!
 
 
 ### Creating a simple Map
@@ -47,9 +47,9 @@ The Mapy library is designed to be simple to use. The following sections provide
 Here is an example of how to create a simple map with a filled polygon:
 
 ```python
-import mapy
-my_map = mapy.Map()
-tile_layer = mapy.TiledRasterLayer(
+import mapsy
+my_map = mapsy.Map()
+tile_layer = mapsy.TiledRasterLayer(
     [
         "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     ]
@@ -58,8 +58,8 @@ my_map.add_layer(tile_layer)
 my_map.add_layer(Attribution("© OpenStreetMap contributors"))
 
 surf = my_map.render(
-    mapy.FixedScreenSize(
-        Box.from_lng_lat(5.988, 47.302, 15.016, 54.983), mapy.ScreenSize(512, 512)
+    mapsy.FixedScreenSize(
+        Box.from_lng_lat(5.988, 47.302, 15.016, 54.983), mapsy.ScreenSize(512, 512)
     )
 )
 surf.write_to_png("my_map.png")
@@ -74,7 +74,7 @@ If you want to use the map on a public place be sure to include proper attributi
 A background layer provides a solid color background for the map.
 
 ```python
-background_layer = mapy.BackgroundLayer(mapy.Color(1, 1, 1))
+background_layer = mapsy.BackgroundLayer(mapsy.Color(1, 1, 1))
 my_map.add_layer(background_layer)
 ```
 
@@ -82,7 +82,7 @@ my_map.add_layer(background_layer)
 A tiled raster layer allows the use of map tiles from sources like OpenStreetMap.
 
 ```python
-tile_layer = mapy.TiledRasterLayer(
+tile_layer = mapsy.TiledRasterLayer(
     [
         "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     ]
@@ -97,12 +97,12 @@ A fill layer can be used to add filled polygons with customizable colors and bor
 from shapely.geometry import shape
 
 polygon = shape(json)
-fill_layer = mapy.FillLayer(
+fill_layer = mapsy.FillLayer(
     [
-        mapy.FillItem(
+        mapsy.FillItem(
             polygon,
-            fill_color=mapy.Color(0.5, 0.5, 0.5, 0.3),
-            line_color=mapy.Color(0, 0, 0),
+            fill_color=mapsy.Color(0.5, 0.5, 0.5, 0.3),
+            line_color=mapsy.Color(0, 0, 0),
             line_width=2,
         )
     ]
@@ -117,12 +117,12 @@ A line layer can be used to show LineStrings on the map
 from shapely.geometry import shape
 
 line = shape(json)
-fill_layer = mapy.LineLayer(
+fill_layer = mapsy.LineLayer(
     [
-        mapy.LineItem(
+        mapsy.LineItem(
             line,
-            join=mapy.LineJoin.round,
-            cap=mapy.LineCap.round
+            join=mapsy.LineJoin.round,
+            cap=mapsy.LineCap.round
             width=12,
             outline_width=3,
             outline_color=Colors.BLACK,
@@ -144,12 +144,12 @@ A circle layer can be used to show Points on the map
 from shapely.geometry import shape
 
 point = shape(json)
-circle_layer = mapy.CircleLayer(
+circle_layer = mapsy.CircleLayer(
     [
-        mapy.CircleItem(
+        mapsy.CircleItem(
             point,
-            fill_color=mapy.Color(0.5, 0.5, 0.5, 0.3),
-            line_color=mapy.Color(0, 0, 0),
+            fill_color=mapsy.Color(0.5, 0.5, 0.5, 0.3),
+            line_color=mapsy.Color(0, 0, 0),
             line_width=2,
             radius=10,
         )
@@ -159,7 +159,7 @@ my_map.add_layer(circle_layer)
 ```
 
 #### Symbol Layer
-A symbol layer can be used to show Points on the map. You can load custom icons by using the `mapy.Icon.from_path` class method.
+A symbol layer can be used to show Points on the map. You can load custom icons by using the `mapsy.Icon.from_path` class method.
 
 ##### Limitations
 - The text is not automatically placed relative to the symbol. You have to calculate the position yourself.
@@ -172,11 +172,11 @@ A symbol layer can be used to show Points on the map. You can load custom icons 
 from shapely.geometry import shape
 
 point = shape(json)
-symbol_layer = mapy.SymbolLayer(
+symbol_layer = mapsy.SymbolLayer(
     [
-        mapy.SymbolItem(
+        mapsy.SymbolItem(
             point,
-            icon=mapy.Icons.PIN_24,
+            icon=mapsy.Icons.PIN_24,
             text="Hello World",
             text_offset=(0, 16)
         )
@@ -185,7 +185,7 @@ symbol_layer = mapy.SymbolLayer(
 my_map.add_layer(symbol_layer)
 ```
 
-You can set the anchor of the text with the `text_anchor` parameter. The default is `mapy.TextAnchor.BOTTOM_LEFT`. The following options are available:
+You can set the anchor of the text with the `text_anchor` parameter. The default is `mapsy.TextAnchor.BOTTOM_LEFT`. The following options are available:
 
 |   |   |   |
 | - | - | - |
@@ -199,7 +199,7 @@ You can set the anchor of the text with the `text_anchor` parameter. The default
 An attribution layer can be used to add attribution to the map. This is important if you use tiles from a public source like OpenStreetMap.
 
 ```python   
-attribution = mapy.Attribution("© OpenStreetMap contributors")
+attribution = mapsy.Attribution("© OpenStreetMap contributors")
 my_map.add_layer(attribution)
 ```
 
@@ -215,7 +215,7 @@ pytest
 
 ## Output Example
 
-The image below is an example of a map created using the Mapy library:
+The image below is an example of a map created using the Mapsy library:
 
 ![Enforced Bounding Box](images/EnforcedBBox.png)
 

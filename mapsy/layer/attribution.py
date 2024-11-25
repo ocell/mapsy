@@ -1,9 +1,9 @@
 from cairo import FontSlant
 from shapely import Point
-from mapy.color import Color, Colors
-from mapy.common import FontWeight, TextAnchor
-from mapy.layer.layer import Layer
-from mapy.render.context import RenderContext
+from mapsy.color import Color, Colors
+from mapsy.common import FontWeight, TextAnchor
+from mapsy.layer.layer import Layer
+from mapsy.render.context import RenderContext
 
 
 class Attribution(Layer):

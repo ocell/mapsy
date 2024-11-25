@@ -1,11 +1,11 @@
 import json
 from typing import Any
 
-import mapy
+import mapsy
 from shapely.geometry import shape, Polygon
 
 import random
-from mapy.geo_util import Box, merge_bounds
+from mapsy.geo_util import Box, merge_bounds
 
 
 def load_geojson(file_path: str) -> tuple[list[Polygon], dict[str, Any]]:
@@ -21,32 +21,32 @@ def load_geojson(file_path: str) -> tuple[list[Polygon], dict[str, Any]]:
     return geoms, properties
 
 
-def build_fill_items(polygons: list[Polygon]) -> list[mapy.FillItem]:
+def build_fill_items(polygons: list[Polygon]) -> list[mapsy.FillItem]:
     items = []
     for poly in polygons:
-        fill_color = mapy.Color.from_hsv(random.random(), 0.7, 0.5, 0.2)
-        line_color = mapy.Color(0, 0, 0, 0.6)
+        fill_color = mapsy.Color.from_hsv(random.random(), 0.7, 0.5, 0.2)
+        line_color = mapsy.Color(0, 0, 0, 0.6)
         line_width = 1
-        items.append(mapy.FillItem(poly, fill_color, line_color, line_width))
+        items.append(mapsy.FillItem(poly, fill_color, line_color, line_width))
     return items
 
 
 def build_symbol_items(
     polygons: list[Polygon], properties: list[dict[str, Any]]
-) -> list[mapy.SymbolItem]:
+) -> list[mapsy.SymbolItem]:
     items = []
     for poly, props in zip(polygons, properties):
         poly.centroid
         text = props["NAME_2"]
-        symbol_item = mapy.SymbolItem(
+        symbol_item = mapsy.SymbolItem(
             poly.centroid,
             text=text,
-            text_weight=mapy.FontWeight.BOLD,
+            text_weight=mapsy.FontWeight.BOLD,
             text_size=18,
-            text_color=mapy.Colors.BLACK,
-            text_outline_color=mapy.Colors.WHITE,
+            text_color=mapsy.Colors.BLACK,
+            text_outline_color=mapsy.Colors.WHITE,
             text_outline_width=2,
-            text_anchor=mapy.TextAnchor.CENTER,
+            text_anchor=mapsy.TextAnchor.CENTER,
             text_offset=(0, 40) if text == "Brandenburg" else (0, 0),
         )
         items.append(symbol_item)
@@ -54,26 +54,26 @@ def build_symbol_items(
 
 
 def main():
-    map = mapy.Map()
+    map = mapsy.Map()
     random.seed(0)
     geoms, properties = load_geojson("example/districts_germany.json")
     bboxes = [Box(*geom.bounds) for geom in geoms]
     bbox = merge_bounds(bboxes).with_relative_padding(0.05)
 
-    tile_layer = mapy.TiledRasterLayer(
+    tile_layer = mapsy.TiledRasterLayer(
         [
             "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
         ]
     )
 
     map.add_layer(tile_layer)
-    map.add_layer(mapy.FillLayer(build_fill_items(geoms)))
-    map.add_layer(mapy.SymbolLayer(build_symbol_items(geoms, properties)))
-    map.add_layer(mapy.Attribution("© OpenStreetMap contributors"))
+    map.add_layer(mapsy.FillLayer(build_fill_items(geoms)))
+    map.add_layer(mapsy.SymbolLayer(build_symbol_items(geoms, properties)))
+    map.add_layer(mapsy.Attribution("© OpenStreetMap contributors"))
 
-    render_mode = mapy.FixedScreenSize(bbox, mapy.ScreenSize(1400, 1175))
+    render_mode = mapsy.FixedScreenSize(bbox, mapsy.ScreenSize(1400, 1175))
     map.render(render_mode).write_to_png("images/EnforcedScreenSize.png")
-    render_mode = mapy.FixedBBox(bbox, 1000**2)
+    render_mode = mapsy.FixedBBox(bbox, 1000**2)
     map.render(render_mode).write_to_png("images/EnforcedBBox.png")
 
 

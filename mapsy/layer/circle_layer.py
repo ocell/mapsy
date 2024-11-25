@@ -5,8 +5,8 @@ from shapely import (
     Point,
 )
 
-from mapy.color import Color, Colors
-from mapy.render.context import RenderContext
+from mapsy.color import Color, Colors
+from mapsy.render.context import RenderContext
 
 
 @dataclass

@@ -8,8 +8,8 @@ from cairo import Context, ImageSurface
 from PIL import Image
 from shapely import LineString, Point, Polygon
 
-from mapy.color import Color
-from mapy.common import (
+from mapsy.color import Color
+from mapsy.common import (
     FontSlant,
     FontWeight,
     ImageFilter,
@@ -20,7 +20,7 @@ from mapy.common import (
 from cairo import FontSlant as FontSlantCairo
 from cairo import FontWeight as FontWeightCairo
 
-from mapy.render.renderer import RenderBackend, Surface
+from mapsy.render.renderer import RenderBackend, Surface
 
 _font_weight_to_cairo = {
     FontWeight.NORMAL: cairo.FONT_WEIGHT_NORMAL,

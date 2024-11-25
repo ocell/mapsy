@@ -2,8 +2,8 @@ from dataclasses import dataclass
 
 from shapely import MultiPolygon, Polygon
 
-from mapy.color import Color
-from mapy.render.context import RenderContext
+from mapsy.color import Color
+from mapsy.render.context import RenderContext
 
 
 @dataclass

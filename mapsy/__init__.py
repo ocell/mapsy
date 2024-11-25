@@ -1,5 +1,5 @@
-from mapy.mapy_map import Map, RenderMode, FixedBBox, FixedScreenSize
-from mapy.layer import (
+from mapsy.mapsy_map import Map, RenderMode, FixedBBox, FixedScreenSize
+from mapsy.layer import (
     Layer,
     Attribution,
     CircleLayer,
@@ -13,8 +13,8 @@ from mapy.layer import (
     BackgroundLayer,
     TiledRasterLayer,
 )
-from mapy.color import Color, Colors
-from mapy.geo_util import (
+from mapsy.color import Color, Colors
+from mapsy.geo_util import (
     Box,
     bbox_to_affine,
     affine_to_local_crs,
@@ -24,9 +24,16 @@ from mapy.geo_util import (
     merge_bounds,
     bounds_for_geometries,
 )
-from mapy.render.cairo_backend import CairoBackend
-from mapy.common import ScreenSize, FontSlant, FontWeight, TextAnchor, LineCap, LineJoin
-from mapy.icon import Icons
+from mapsy.render.cairo_backend import CairoBackend
+from mapsy.common import (
+    ScreenSize,
+    FontSlant,
+    FontWeight,
+    TextAnchor,
+    LineCap,
+    LineJoin,
+)
+from mapsy.icon import Icons
 
 __all__ = [
     "Map",

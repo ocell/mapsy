@@ -2,8 +2,8 @@ from enum import Enum
 from typing import NamedTuple
 
 
-class MapyInfo:
-    AGENT_NAME = "mapy"
+class MapsyInfo:
+    AGENT_NAME = "mapsy"
     VERSION = "0.1.0"
 
 

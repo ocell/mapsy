@@ -3,8 +3,8 @@ from affine import Affine
 from cairo import FontWeight
 from shapely import LineString, Point, Polygon
 
-from mapy.color import Color
-from mapy.common import FontSlant, ImageFilter, LineCap, LineJoin, TextAnchor
+from mapsy.color import Color
+from mapsy.common import FontSlant, ImageFilter, LineCap, LineJoin, TextAnchor
 
 
 class Surface(Protocol):

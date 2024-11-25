@@ -2,7 +2,7 @@ from dataclasses import dataclass
 import os
 from pathlib import Path
 
-from mapy.common import IconAlign
+from mapsy.common import IconAlign
 
 
 @dataclass
