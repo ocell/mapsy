@@ -134,7 +134,7 @@ my_map.add_layer(fill_layer)
 
 The `LineItem` options `cap` and `join` lead to the following results:
 
-![Cap Join Options](images/line_types.png)
+![Cap Join Options](https://raw.githubusercontent.com/ocell/mapsy/main/images/line_types.png)
 
 
 #### Circle Layer
@@ -189,9 +189,9 @@ You can set the anchor of the text with the `text_anchor` parameter. The default
 
 |   |   |   |
 | - | - | - |
-| ![TOP_LEFT](images/text_anchor_top_left.png) | ![TOP](images/text_anchor_top.png) | ![TOP_RIGHT](images/text_anchor_top_right.png) |
-| ![LEFT](images/text_anchor_left.png) | ![CENTER](images/text_anchor_center.png) | ![RIGHT](images/text_anchor_right.png) |
-| ![BOTTOM_LEFT](images/text_anchor_bottom_left.png) | ![BOTTOM](images/text_anchor_bottom.png) | ![BOTTOM_RIGHT](images/text_anchor_bottom_right.png) |
+| ![TOP_LEFT](https://raw.githubusercontent.com/ocell/mapsy/main/images/text_anchor_top_left.png) | ![TOP](https://raw.githubusercontent.com/ocell/mapsy/main/images/text_anchor_top.png) | ![TOP_RIGHT](https://raw.githubusercontent.com/ocell/mapsy/main/images/text_anchor_top_right.png) |
+| ![LEFT](https://raw.githubusercontent.com/ocell/mapsy/main/images/text_anchor_left.png) | ![CENTER](https://raw.githubusercontent.com/ocell/mapsy/main/images/text_anchor_center.png) | ![RIGHT](https://raw.githubusercontent.com/ocell/mapsy/main/images/text_anchor_right.png) |
+| ![BOTTOM_LEFT](https://raw.githubusercontent.com/ocell/mapsy/main/images/text_anchor_bottom_left.png) | ![BOTTOM](https://raw.githubusercontent.com/ocell/mapsy/main/images/text_anchor_bottom.png) | ![BOTTOM_RIGHT](https://raw.githubusercontent.com/ocell/mapsy/main/images/text_anchor_bottom_right.png) |
 
 
 
@@ -217,7 +217,7 @@ pytest
 
 The image below is an example of a map created using the Mapsy library:
 
-![Enforced Bounding Box](images/EnforcedBBox.png)
+![Enforced Bounding Box](https://raw.githubusercontent.com/ocell/mapsy/main/images/EnforcedBBox.png)
 
 ## License
 This project is licensed under the MIT License.
