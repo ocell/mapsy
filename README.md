@@ -191,7 +191,7 @@ You can set the anchor of the text with the `text_anchor` parameter. The default
 | - | - | - |
 | ![TOP_LEFT](images/text_anchor_top_left.png) | ![TOP](images/text_anchor_top.png) | ![TOP_RIGHT](images/text_anchor_top_right.png) |
 | ![LEFT](images/text_anchor_left.png) | ![CENTER](images/text_anchor_center.png) | ![RIGHT](images/text_anchor_right.png) |
-| ![BOTTOM_LEFT](images/text_anchor_bottom_left.png) | ![BOTTOM](images/text_anchor_BOTTOM.png) | ![BOTTOM_RIGHT](images/text_anchor_bottom_right.png) |
+| ![BOTTOM_LEFT](images/text_anchor_bottom_left.png) | ![BOTTOM](images/text_anchor_bottom.png) | ![BOTTOM_RIGHT](images/text_anchor_bottom_right.png) |
 
 
 
