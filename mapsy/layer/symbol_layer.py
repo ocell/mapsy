@@ -33,8 +33,8 @@ class SymbolItem:
 class SymbolLayer(Layer):
     items: list[SymbolItem]
 
-    def __init__(self, symbols: list[SymbolItem]) -> None:
-        self.items = symbols
+    def __init__(self, items: list[SymbolItem]) -> None:
+        self.items = items
         super().__init__()
 
     @staticmethod

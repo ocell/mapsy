@@ -100,7 +100,7 @@ polygon = shape(json)
 fill_layer = mapsy.FillLayer(
     [
         mapsy.FillItem(
-            polygon,
+            geometry=polygon,
             fill_color=mapsy.Color(0.5, 0.5, 0.5, 0.3),
             line_color=mapsy.Color(0, 0, 0),
             line_width=2,
@@ -120,7 +120,7 @@ line = shape(json)
 fill_layer = mapsy.LineLayer(
     [
         mapsy.LineItem(
-            line,
+            geometry=line,
             join=mapsy.LineJoin.round,
             cap=mapsy.LineCap.round
             width=12,
@@ -147,7 +147,7 @@ point = shape(json)
 circle_layer = mapsy.CircleLayer(
     [
         mapsy.CircleItem(
-            point,
+            geometry=point,
             fill_color=mapsy.Color(0.5, 0.5, 0.5, 0.3),
             line_color=mapsy.Color(0, 0, 0),
             line_width=2,
@@ -175,7 +175,7 @@ point = shape(json)
 symbol_layer = mapsy.SymbolLayer(
     [
         mapsy.SymbolItem(
-            point,
+            geometry=point,
             icon=mapsy.Icons.PIN_24,
             text="Hello World",
             text_offset=(0, 16)

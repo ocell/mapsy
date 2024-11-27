@@ -19,14 +19,14 @@ class LineItem:
     color: str | None = None
     width: float | None = 1
     cap: LineCap | None = LineCap.BUTT
-    join: LineJoin | None = LineJoin.MITER
+    join: LineJoin | None = LineJoin.ROUND
     outline_color: str | None = None
     outline_width: float | None = None
 
 
 class LineLayer(Layer):
-    def __init__(self, lines: list[LineItem]) -> None:
-        self.items = lines
+    def __init__(self, items: list[LineItem]) -> None:
+        self.items = items
 
     def render(self, context: RenderContext) -> None:
         def render_line(geom: LineString, item: LineItem) -> None:

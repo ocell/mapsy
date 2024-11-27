@@ -7,14 +7,14 @@ from test.util import assert_render_equality
 def test_fill_layer(tmp_path):
     items = [
         mapsy.FillItem(
-            polygon=Polygon([(0, 0), (0.5, 0), (0.5, 0.5), (0, 0.5)]),
-            fill_color=mapsy.Color(1, 0, 0),
+            geometry=Polygon([(0, 0), (0.5, 0), (0.5, 0.5), (0, 0.5)]),
+            color=mapsy.Color(1, 0, 0),
             line_color=mapsy.Color(0, 0, 0),
             line_width=1,
         ),
         mapsy.FillItem(
-            polygon=Polygon([(0.5, 0.5), (1, 0.5), (1, 1), (0.5, 1)]),
-            fill_color=mapsy.Color(0, 1, 0),
+            geometry=Polygon([(0.5, 0.5), (1, 0.5), (1, 1), (0.5, 1)]),
+            color=mapsy.Color(0, 1, 0),
             line_color=mapsy.Color(1, 1, 1),
             line_width=10,
         ),

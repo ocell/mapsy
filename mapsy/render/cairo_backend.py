@@ -139,6 +139,8 @@ class CairoBackend(RenderBackend):
 
         if line_width > 0:
             context.set_line_width(line_width)
+            context.set_line_join(cairo.LINE_JOIN_ROUND)
+
             draw_paths(line_color)
             context.stroke()
 
@@ -148,7 +150,7 @@ class CairoBackend(RenderBackend):
         color: Color,
         width: float,
         cap: LineCap = LineCap.BUTT,
-        join: LineJoin = LineJoin.MITER,
+        join: LineJoin = LineJoin.ROUND,
         outline_color: Color = None,
         outline_width: float = 0,
     ) -> None:

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mapsy"
-version = "0.1.0"
+version = "0.2.0"
 description = "Mapsy is a Python library designed easily render static maps in python."
 authors = ["Felix Horvat <felix.horvat@ocell.io>"]
 readme = "README.md"

@@ -60,8 +60,8 @@ def main():
     fill = mapsy.FillLayer(
         [
             mapsy.FillItem(
-                polygon,
-                fill_color=mapsy.Color(0.5, 0.5, 0.5, 0.3),
+                geometry=polygon,
+                color=mapsy.Color(0.5, 0.5, 0.5, 0.3),
                 line_color=mapsy.Color(0, 0, 0),
                 line_width=2,
             )
