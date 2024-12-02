@@ -19,23 +19,20 @@ Input data must be in the `EPSG:4326` - WGS84 projection.
 
 
 ## Installation
-To install the Mapsy library, clone the repository and install the required dependencies:
+You can simply install the library using pip:
 
 ```bash
-git clone <repository-url>
-cd mapsy
-poetry install
-# or
-pip install .
+pip install mapsy
 ```
 
-This library uses Cairo. You have to install cairo with your package manger of choice.
+IMPORTANT: This library uses Cairo. You will have to install cairo with your package manager of choice.
 
 on mac
 
 ```bash
 brew install cairo
 ```
+
 
 ## Usage
 
