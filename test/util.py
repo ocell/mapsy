@@ -1,4 +1,3 @@
-import pytest
 import mapsy
 from contextlib import contextmanager
 from os import path

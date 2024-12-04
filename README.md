@@ -209,6 +209,9 @@ The project includes unit tests to ensure the functionality of various component
 pytest
 ```
 
+Note that if you have a different cairo version installed some tests might fail. This is due to the fact that the tests compare the rendered images with reference images. If you have a different cairo version installed, the images might look slightly different. 
+
+
 ## Output Example
 
 The image below is an example of a map created using the Mapsy library:
