@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from affine import Affine
 from shapely import MultiPoint, Point, affinity
 
-from mapsy.color import Color
+from mapsy.color import Color, Colors
 from mapsy.common import FontSlant, FontWeight, TextAnchor
 from mapsy.icon.icon import Icon
 from mapsy.layer.layer import Layer
@@ -22,7 +22,7 @@ class SymbolItem:
     text_offset: tuple[float, float] = (0, 0)
     text_font: str = "arial"
     text_size: float = 12
-    text_color: Color | None = Color(0, 0, 0)
+    text_color: Color | None = Colors.BLACK
     text_slant: FontSlant | None = None
     text_weight: FontWeight | None = None
     text_anchor: TextAnchor | None = None

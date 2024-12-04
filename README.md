@@ -41,10 +41,11 @@ The Mapsy library is designed to be simple to use. The following sections provid
 
 ### Creating a simple Map
 
-Here is an example of how to create a simple map with a filled polygon:
+Here is an example of how to create a simple map with a tiled raster layer:
 
 ```python
 import mapsy
+
 my_map = mapsy.Map()
 tile_layer = mapsy.TiledRasterLayer(
     [
@@ -52,20 +53,18 @@ tile_layer = mapsy.TiledRasterLayer(
     ]
 )
 my_map.add_layer(tile_layer)
-my_map.add_layer(Attribution("© OpenStreetMap contributors"))
+my_map.add_layer(mapsy.Attribution("© OpenStreetMap contributors"))
 
 surf = my_map.render(
     mapsy.FixedScreenSize(
-        Box.from_lng_lat(5.988, 47.302, 15.016, 54.983), mapsy.ScreenSize(512, 512)
+        mapsy.Box.from_lng_lat(5.988, 47.302, 15.016, 54.983), mapsy.ScreenSize(512, 512)
     )
 )
 surf.write_to_png("my_map.png")
 
 ```
 
-If you want to use the map on a public place be sure to include proper attribution. This code will generate a map with a filled polygon and save it as `simple_map.png`.
-
-
+### Layers
 
 #### Background Layer
 A background layer provides a solid color background for the map.

@@ -1,8 +1,9 @@
 import colorsys
 from dataclasses import dataclass
+from functools import cached_property
 
 
-@dataclass
+@dataclass(frozen=True)
 class Color:
     r: float
     g: float
@@ -11,27 +12,19 @@ class Color:
 
     @property
     def h(self) -> float:
-        self._ensure_hsv_exists()
         return self.hsv[0]
 
     @property
     def s(self) -> float:
-        self._ensure_hsv_exists()
-        return self.hsv[2]
+        return self.hsv[1]
 
     @property
     def v(self) -> float:
-        self._ensure_hsv_exists()
-        return self.hsv[3]
+        return self.hsv[2]
 
-    @property
+    @cached_property
     def hsv(self) -> tuple[float, float, float]:
-        self._ensure_hsv_exists()
-        return self.hsv
-
-    def _ensure_hsv_exists(self):
-        if self._hsv is None:
-            self._hsv = colorsys.rgb_to_hsv(self.r, self.g, self.b)
+        return colorsys.rgb_to_hsv(self.r, self.g, self.b)
 
     def float_rgb(self) -> tuple[float, float, float]:
         return self.r, self.g, self.b
