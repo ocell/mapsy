@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mapsy"
-version = "0.3.1"
+version = "0.3.2"
 description = "Mapsy is a Python library designed easily render static maps in python."
 authors = ["Felix Horvat <felix.horvat@ocell.io>"]
 readme = "README.md"
@@ -17,7 +17,7 @@ pycairo = "^1.26.1"
 pyproj = "^3.6.1"
 mercantile = "^1.2.1"
 affine = "^2.4.0"
-requests = "^2.32.3"
+requests = "^2.32.5"
 urllib3 = "^2.6.3"
 
 [tool.poetry.group.dev.dependencies]
