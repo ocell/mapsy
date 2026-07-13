@@ -4,7 +4,7 @@ from typing import NamedTuple
 
 class MapsyInfo:
     AGENT_NAME = "mapsy"
-    VERSION = "0.1.0"
+    VERSION = "0.3.3"
 
 
 class LineCap(Enum):
