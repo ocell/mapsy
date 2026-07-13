@@ -1,5 +1,5 @@
 import pytest
-from mapsy.geo_util import Box
+from mapsy.geo_util import Box, bbox_to_affine
 
 
 def test_bbox_round_trip():
@@ -31,3 +31,17 @@ def test_bbox_aspect_ratio_padding():
 
     assert padded.aspect_ratio == 2
     assert padded == pytest.approx(Box(0, 2, 4, 4))
+
+
+def test_bbox_to_affine_maps_image_corners_without_shear():
+    bbox = Box(100, 200, 500, 800)
+    width, height = 80, 60
+
+    transform = bbox_to_affine(bbox, (width, height))
+
+    assert transform.b == 0
+    assert transform.d == 0
+    assert transform * (0, 0) == pytest.approx((bbox.x_min, bbox.y_max))
+    assert transform * (width, 0) == pytest.approx((bbox.x_max, bbox.y_max))
+    assert transform * (0, height) == pytest.approx((bbox.x_min, bbox.y_min))
+    assert transform * (width, height) == pytest.approx((bbox.x_max, bbox.y_min))

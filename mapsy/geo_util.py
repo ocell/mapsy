@@ -113,7 +113,7 @@ def bbox_to_affine(
 ) -> affine.Affine:
     scale_x = bbox.delta_x / shape[0]
     scale_y = bbox.delta_y / shape[1]
-    return affine.Affine(scale_x, -1, bbox.x_min, -1, -scale_y, bbox.y_max)
+    return affine.Affine(scale_x, 0, bbox.x_min, 0, -scale_y, bbox.y_max)
 
 
 def wgs84_to_web_mercator(geom: BaseGeometry):
